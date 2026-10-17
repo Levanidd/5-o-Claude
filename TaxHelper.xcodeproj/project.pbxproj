@@ -1,0 +1,546 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 110;
+	objects = {
+
+/* Begin PBXContainerItemProxy section */
+		B3560FAE30838BD2003B0D42 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B3560F9830838BD1003B0D42 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = B3560F9F30838BD1003B0D42;
+			remoteInfo = TaxHelper;
+		};
+		B3560FB830838BD2003B0D42 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B3560F9830838BD1003B0D42 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = B3560F9F30838BD1003B0D42;
+			remoteInfo = TaxHelper;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		B3560FA030838BD1003B0D42 /* TaxHelper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TaxHelper.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		B3560FAD30838BD2003B0D42 /* TaxHelperTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TaxHelperTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		B3560FB730838BD2003B0D42 /* TaxHelperUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TaxHelperUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFileSystemSynchronizedRootGroup section */
+		B3560FA230838BD1003B0D42 /* TaxHelper */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = TaxHelper;
+			sourceTree = "<group>";
+		};
+		B3560FB030838BD2003B0D42 /* TaxHelperTests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = TaxHelperTests;
+			sourceTree = "<group>";
+		};
+		B3560FBA30838BD2003B0D42 /* TaxHelperUITests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = TaxHelperUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXFileSystemSynchronizedRootGroup section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		B3560F9D30838BD1003B0D42 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			files = (
+			);
+		};
+		B3560FAA30838BD2003B0D42 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			files = (
+			);
+		};
+		B3560FB430838BD2003B0D42 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			files = (
+			);
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		B3560F9730838BD1003B0D42 = {
+			isa = PBXGroup;
+			children = (
+				B3560FA230838BD1003B0D42 /* TaxHelper */,
+				B3560FB030838BD2003B0D42 /* TaxHelperTests */,
+				B3560FBA30838BD2003B0D42 /* TaxHelperUITests */,
+				B3560FA130838BD1003B0D42 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		B3560FA130838BD1003B0D42 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				B3560FA030838BD1003B0D42 /* TaxHelper.app */,
+				B3560FAD30838BD2003B0D42 /* TaxHelperTests.xctest */,
+				B3560FB730838BD2003B0D42 /* TaxHelperUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		B3560F9F30838BD1003B0D42 /* TaxHelper */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B3560FBF30838BD2003B0D42 /* Build configuration list for PBXNativeTarget "TaxHelper" */;
+			buildPhases = (
+				B3560F9C30838BD1003B0D42 /* Sources */,
+				B3560F9D30838BD1003B0D42 /* Frameworks */,
+				B3560F9E30838BD1003B0D42 /* Resources */,
+			);
+			buildRules = (
+			);
+			fileSystemSynchronizedGroups = (
+				B3560FA230838BD1003B0D42 /* TaxHelper */,
+			);
+			name = TaxHelper;
+			productName = TaxHelper;
+			productReference = B3560FA030838BD1003B0D42 /* TaxHelper.app */;
+			productType = "com.apple.product-type.application";
+		};
+		B3560FAC30838BD2003B0D42 /* TaxHelperTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B3560FC230838BD2003B0D42 /* Build configuration list for PBXNativeTarget "TaxHelperTests" */;
+			buildPhases = (
+				B3560FA930838BD2003B0D42 /* Sources */,
+				B3560FAA30838BD2003B0D42 /* Frameworks */,
+				B3560FAB30838BD2003B0D42 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				B3560FAF30838BD2003B0D42 /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				B3560FB030838BD2003B0D42 /* TaxHelperTests */,
+			);
+			name = TaxHelperTests;
+			productName = TaxHelperTests;
+			productReference = B3560FAD30838BD2003B0D42 /* TaxHelperTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		B3560FB630838BD2003B0D42 /* TaxHelperUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B3560FC530838BD2003B0D42 /* Build configuration list for PBXNativeTarget "TaxHelperUITests" */;
+			buildPhases = (
+				B3560FB330838BD2003B0D42 /* Sources */,
+				B3560FB430838BD2003B0D42 /* Frameworks */,
+				B3560FB530838BD2003B0D42 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				B3560FB930838BD2003B0D42 /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				B3560FBA30838BD2003B0D42 /* TaxHelperUITests */,
+			);
+			name = TaxHelperUITests;
+			productName = TaxHelperUITests;
+			productReference = B3560FB730838BD2003B0D42 /* TaxHelperUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		B3560F9830838BD1003B0D42 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 2710;
+				LastUpgradeCheck = 2710;
+				TargetAttributes = {
+					B3560F9F30838BD1003B0D42 = {
+						CreatedOnToolsVersion = 27.1;
+					};
+					B3560FAC30838BD2003B0D42 = {
+						CreatedOnToolsVersion = 27.1;
+						TestTargetID = B3560F9F30838BD1003B0D42;
+					};
+					B3560FB630838BD2003B0D42 = {
+						CreatedOnToolsVersion = 27.1;
+						TestTargetID = B3560F9F30838BD1003B0D42;
+					};
+				};
+			};
+			buildConfigurationList = B3560F9B30838BD1003B0D42 /* Build configuration list for PBXProject "TaxHelper" */;
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = B3560F9730838BD1003B0D42;
+			minimizedProjectReferenceProxies = 1;
+			preferredProjectObjectVersion = 77;
+			productRefGroup = B3560FA130838BD1003B0D42 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				B3560F9F30838BD1003B0D42 /* TaxHelper */,
+				B3560FAC30838BD2003B0D42 /* TaxHelperTests */,
+				B3560FB630838BD2003B0D42 /* TaxHelperUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		B3560F9E30838BD1003B0D42 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			files = (
+			);
+		};
+		B3560FAB30838BD2003B0D42 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			files = (
+			);
+		};
+		B3560FB530838BD2003B0D42 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			files = (
+			);
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		B3560F9C30838BD1003B0D42 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			files = (
+			);
+		};
+		B3560FA930838BD2003B0D42 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			files = (
+			);
+		};
+		B3560FB330838BD2003B0D42 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			files = (
+			);
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		B3560FAF30838BD2003B0D42 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = B3560F9F30838BD1003B0D42 /* TaxHelper */;
+			targetProxy = B3560FAE30838BD2003B0D42 /* PBXContainerItemProxy */;
+		};
+		B3560FB930838BD2003B0D42 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = B3560F9F30838BD1003B0D42 /* TaxHelper */;
+			targetProxy = B3560FB830838BD2003B0D42 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		B3560FBD30838BD2003B0D42 /* Debug configuration for PBXProject "TaxHelper" */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 27.0;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		B3560FBE30838BD2003B0D42 /* Release configuration for PBXProject "TaxHelper" */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 27.0;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		B3560FC030838BD2003B0D42 /* Debug configuration for PBXNativeTarget "TaxHelper" */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "Kurdyukov-Leonid.TaxHelper";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		B3560FC130838BD2003B0D42 /* Release configuration for PBXNativeTarget "TaxHelper" */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "Kurdyukov-Leonid.TaxHelper";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		B3560FC330838BD2003B0D42 /* Debug configuration for PBXNativeTarget "TaxHelperTests" */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 27.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "Kurdyukov-Leonid.TaxHelperTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRING_CATALOG_GENERATE_SYMBOLS = NO;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TaxHelper.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/TaxHelper";
+			};
+			name = Debug;
+		};
+		B3560FC430838BD2003B0D42 /* Release configuration for PBXNativeTarget "TaxHelperTests" */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 27.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "Kurdyukov-Leonid.TaxHelperTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRING_CATALOG_GENERATE_SYMBOLS = NO;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TaxHelper.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/TaxHelper";
+			};
+			name = Release;
+		};
+		B3560FC630838BD2003B0D42 /* Debug configuration for PBXNativeTarget "TaxHelperUITests" */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "Kurdyukov-Leonid.TaxHelperUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRING_CATALOG_GENERATE_SYMBOLS = NO;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = TaxHelper;
+			};
+			name = Debug;
+		};
+		B3560FC730838BD2003B0D42 /* Release configuration for PBXNativeTarget "TaxHelperUITests" */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "Kurdyukov-Leonid.TaxHelperUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRING_CATALOG_GENERATE_SYMBOLS = NO;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = TaxHelper;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		B3560F9B30838BD1003B0D42 /* Build configuration list for PBXProject "TaxHelper" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B3560FBD30838BD2003B0D42 /* Debug configuration for PBXProject "TaxHelper" */,
+				B3560FBE30838BD2003B0D42 /* Release configuration for PBXProject "TaxHelper" */,
+			);
+			defaultConfigurationName = Release;
+		};
+		B3560FBF30838BD2003B0D42 /* Build configuration list for PBXNativeTarget "TaxHelper" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B3560FC030838BD2003B0D42 /* Debug configuration for PBXNativeTarget "TaxHelper" */,
+				B3560FC130838BD2003B0D42 /* Release configuration for PBXNativeTarget "TaxHelper" */,
+			);
+			defaultConfigurationName = Release;
+		};
+		B3560FC230838BD2003B0D42 /* Build configuration list for PBXNativeTarget "TaxHelperTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B3560FC330838BD2003B0D42 /* Debug configuration for PBXNativeTarget "TaxHelperTests" */,
+				B3560FC430838BD2003B0D42 /* Release configuration for PBXNativeTarget "TaxHelperTests" */,
+			);
+			defaultConfigurationName = Release;
+		};
+		B3560FC530838BD2003B0D42 /* Build configuration list for PBXNativeTarget "TaxHelperUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B3560FC630838BD2003B0D42 /* Debug configuration for PBXNativeTarget "TaxHelperUITests" */,
+				B3560FC730838BD2003B0D42 /* Release configuration for PBXNativeTarget "TaxHelperUITests" */,
+			);
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = B3560F9830838BD1003B0D42 /* Project object */;
+	validationLevel = 1;
+}
