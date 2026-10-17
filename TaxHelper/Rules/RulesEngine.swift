@@ -259,6 +259,62 @@ enum RulesEngine {
         return result
     }
 
+    /// Legal deadlines that follow from the profile alone, so the parent sees them before any letter arrives.
+    static func deadlines(_ p: Profile, _ opportunities: [Opportunity], today: Date = .now) -> [Deadline] {
+        let cal = Calendar.current
+        let y = currentYear
+        let month = cal.component(.month, from: today)
+        let endOfMonth = cal.date(byAdding: DateComponents(month: 1, day: -1), to: cal.date(from: cal.dateComponents([.year, .month], from: today))!)!
+        let endOfMonthText = String(format: "%02d.%02d.%d", cal.component(.day, from: endOfMonth), month, cal.component(.year, from: endOfMonth))
+        let pg = p.pflegegrad ?? 0
+        func opp(_ id: String) -> Opportunity? { opportunities.first { $0.id == id } }
+        var result: [Deadline] = []
+
+        if let o = opp("care_allowance"), !o.alreadyReceived {
+            result.append(Deadline(
+                id: "apply_care_allowance", title: L("Apply for care allowance — it's paid only from the month you apply"),
+                date: endOfMonthText, steps: o.howToClaim, source: "§ 33 (1) SGB XI", opportunityID: o.id))
+        }
+
+        if let o = opp("apply_status") {
+            result.append(Deadline(
+                id: "apply_status", title: L("Apply now — support starts from the month you apply"),
+                date: endOfMonthText, steps: o.howToClaim, source: "§ 33 (1) SGB XI", opportunityID: o.id))
+        }
+
+        if p.receivesPflegegeld, pg >= 2, p.careAtHome != false {
+            let quarterly = pg >= 4
+            let periodEnd = quarterly ? ((month - 1) / 3 + 1) * 3 : (month <= 6 ? 6 : 12)
+            let day = periodEnd == 6 || periodEnd == 9 ? 30 : 31
+            result.append(Deadline(
+                id: "advice_visit_\(y)_\(periodEnd)", title: L("Send proof of the care advice visit"),
+                date: String(format: "%02d.%02d.%d", day, periodEnd, y),
+                steps: [L("Book the advice visit with an approved care service"), L("Ask for the written proof (Nachweis)"), L("Send it to your care insurer")],
+                source: "§ 37 (3) SGB XI", opportunityID: opp("care_allowance")?.id))
+        }
+
+        if let o = opp("care_respite_budget") {
+            result.append(Deadline(
+                id: "respite_\(y)", title: L("Respite care budget %@ runs out", y),
+                date: "31.12.\(y)", steps: o.howToClaim, source: "§ 42a SGB XI", opportunityID: o.id))
+        }
+
+        if let o = opp("care_relief_amount") {
+            result.append(Deadline(
+                id: "relief_\(y)", title: L("Relief amount %@: unused money expires", y),
+                date: "30.06.\(y + 1)", steps: o.howToClaim, source: "§ 45b SGB XI", opportunityID: o.id))
+        }
+
+        if let o = opp("tax_past_years"), let since = p.statusSinceYear {
+            let earliest = max(since, y - 4)
+            result.append(Deadline(
+                id: "tax_\(earliest)", title: L("Tax refund for %@: last day to file", earliest),
+                date: "31.12.\(earliest + 4)", steps: o.howToClaim, source: "§ 169 AO", opportunityID: o.id))
+        }
+
+        return result
+    }
+
     /// Next best action: € × likelihood ÷ effort.
     static func rank(_ opportunities: [Opportunity]) -> [Opportunity] {
         opportunities.sorted { score($0) > score($1) }

@@ -241,8 +241,28 @@ struct Letter: Identifiable {
 }
 
 struct Deadline: Identifiable, Hashable {
-    let id = UUID()
+    let id: String
     let title: String
+    /// dd.MM.yyyy, as printed on German letters.
     let date: String
-    let urgent: Bool
+    let steps: [String]
+    var source: String?
+    var opportunityID: String?
+
+    private static let parser: DateFormatter = {
+        let f = DateFormatter()
+        f.dateFormat = "dd.MM.yyyy"
+        f.locale = Locale(identifier: "de_DE")
+        return f
+    }()
+
+    var due: Date? { Self.parser.date(from: date) }
+
+    var daysLeft: Int? {
+        guard let due else { return nil }
+        let cal = Calendar.current
+        return cal.dateComponents([.day], from: cal.startOfDay(for: .now), to: cal.startOfDay(for: due)).day
+    }
+
+    var urgent: Bool { (daysLeft ?? .max) <= 60 }
 }

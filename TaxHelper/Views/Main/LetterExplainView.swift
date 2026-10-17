@@ -32,7 +32,7 @@ struct LetterExplainView: View {
             let r = await AIService.explainLetter(text: letter.originalText, image: letter.imageData, language: app.language)
             withAnimation { result = r }
             if let deadline = r.value.deadline {
-                app.addDeadline(L("Reply to %@", r.value.sender ?? L("letter")), deadline)
+                app.addDeadline(L("Reply to %@", r.value.sender ?? L("letter")), deadline, steps: r.value.whatToDo)
                 app.banner = L("New deadline added: %@", deadline)
             }
         }

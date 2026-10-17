@@ -58,9 +58,19 @@ final class AppState {
         statuses[o.id] = s
     }
 
-    func addDeadline(_ title: String, _ date: String) {
-        guard !deadlines.contains(where: { $0.title == title && $0.date == date }) else { return }
-        deadlines.insert(Deadline(title: title, date: date, urgent: true), at: 0)
+    /// Deadlines from letters plus the ones the rules know from the profile, soonest first.
+    var allDeadlines: [Deadline] {
+        let fromRules = RulesEngine.deadlines(profile, opportunities).filter { d in
+            guard let id = d.opportunityID, let s = statuses[id] else { return true }
+            return s != .submitted && s != .approved
+        }
+        return (deadlines + fromRules).sorted { ($0.due ?? .distantFuture) < ($1.due ?? .distantFuture) }
+    }
+
+    func addDeadline(_ title: String, _ date: String, steps: [String]) {
+        let id = "letter:\(title)|\(date)"
+        guard !deadlines.contains(where: { $0.id == id }) else { return }
+        deadlines.insert(Deadline(id: id, title: title, date: date, steps: steps, source: L("From your letter")), at: 0)
     }
 
     func reset() {
@@ -84,7 +94,11 @@ final class AppState {
     private static let key = "appState.v1"
 
     init() {
-        if let data = UserDefaults.standard.data(forKey: Self.key),
+        let reset = ProcessInfo.processInfo.arguments.contains("-resetState")
+        if reset {
+            UserDefaults.standard.removeObject(forKey: Self.key)
+        }
+        if !reset, let data = UserDefaults.standard.data(forKey: Self.key),
            let saved = try? JSONDecoder().decode(Saved.self, from: data) {
             stage = saved.stage
             language = saved.language
