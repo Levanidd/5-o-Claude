@@ -5,6 +5,8 @@
 Built in one day by team **5 o'Claude** at the [Claude Impact Lab Berlin](https://github.com/Claude-Community-Berlin/claude-impact-lab-berlin-2026-10-17) (theme: AI education for everyone). Pitch deck: [`docs/Taxability-Video-Pitch.pptx`](docs/Taxability-Video-Pitch.pptx).
 
 > **€8,000 a year she's owed. Nobody told her.**
+>
+> 🎬 **[Watch the 2-minute demo video](https://drive.google.com/file/d/1mwXyKSSVENpMTxiY-pCAxnxocQFb2ab9/view?usp=sharing)**
 
 ## Who it is for
 Parents of children with disabilities in Germany, especially single parents and newcomers who don't read official German.
@@ -95,7 +97,7 @@ The partner pays, not the parent. We never hold her money. These are planned rou
 **Next:** a pilot with 100 families. Give parents their time and money back.
 
 ## Screenshots / demo
-**Demo video (2 min):** TODO add link before submitting.
+**Demo video (2 min):** [watch on Google Drive](https://drive.google.com/file/d/1mwXyKSSVENpMTxiY-pCAxnxocQFb2ab9/view?usp=sharing)
 
 <p>
   <img src="docs/screenshots/1-language.png" width="160" alt="Choose your language">
