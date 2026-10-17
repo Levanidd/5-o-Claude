@@ -1,14 +1,13 @@
-> 👋 **Starter for Claude Impact Lab teams.** Fill in each section below as you build and delete this note.
->
-> 📅 **Agenda, rules, deadline and judging** are in the event repo: **[claude-impact-lab-berlin-2026-10-17](https://github.com/Claude-Community-Berlin/claude-impact-lab-berlin-2026-10-17)**. Read it first.
->
-> ✅ **When you're finished:** record a 2-minute demo video, then submit with the **[submission form](https://tally.so/r/1WPr9Q)** before **16:00**. One submission per team.
->
-> 🔑 Set your API key first: `cp .env.example .env`, then paste your key into `.env` (it's git-ignored, never commit it).
-
 # Taxability
 
 **One line:** An iOS app that finds the money and support parents of disabled children in Germany are entitled to, explains it in their own language, and writes the German letters for them.
+
+Built in one day at the [Claude Impact Lab Berlin](https://github.com/Claude-Community-Berlin/claude-impact-lab-berlin-2026-10-17) (theme: AI education for everyone).
+
+## Who it's for
+- **Audience:** parents of children with disabilities in Germany, especially expats and newcomers who don't read official German.
+- **Their problem with AI today:** general chatbots invent rules and amounts and can't be trusted with official letters, so these parents either avoid AI or trust it blindly.
+- **What our demo lets them do:** photograph a German letter or decision, understand it in their own language, see which money they are entitled to (decided by fixed rules with legal sources), and get a German reply drafted, with every AI step labelled so they learn what AI is good at and where rules and people decide.
 
 ## The problem
 Parents of children with disabilities in Germany leave thousands of euros a year unclaimed: tax allowances, care budgets, supplies. The rules are spread across tax law and care insurance, and every letter is in official German. Expats and newcomers who don't read German are hit hardest.
@@ -19,7 +18,7 @@ Parents of children with disabilities in Germany leave thousands of euros a year
 - **Explainable cards:** "Why you qualify" rule chain, how we calculated it, legal source, confidence badge (Confirmed / Likely / Needs 1 answer).
 - **Scan, then confirm:** photo of a care-level decision → Claude reads the fields → parent confirms each value.
 - **Official letter explainer:** photo of a German letter → what it says, what to do, deadline, amount — in the parent's language. Deadline lands on the dashboard.
-- **Reply in German:** the parent writes in their language → formal German letter, side by side with a translation, locked file numbers/dates, share or print.
+- **Reply in German:** the parent writes in their language → formal German message body, side by side with a translation, locked file numbers/dates, one-tap copy, share or print.
 - **Dashboard:** € secured vs. € open, one Next best action, deadlines. "Add to Taxfix return" is a mock handoff.
 
 ## How Claude is used
@@ -54,22 +53,19 @@ Then set `BACKEND_URL` in the TaxHelper target's build settings, or paste the UR
 - **Demo mode** (Family tab) uses cached AI answers, so the pitch works offline. If the backend is unreachable the app falls back to them automatically.
 - Printable fictional documents to photograph: `fixtures/pflegegrad_bescheid.pdf` (care-level decision) and `fixtures/pflegekasse_brief.pdf` (letter from the care insurer). Video script: [DEMO.md](DEMO.md).
 
-**Live link (if any):** <link>
+**Live link:** there is no web app, Taxability is an iOS app. The hosted backend answers at `https://taxability.kurdyukov-leo-ger.workers.dev/health`.
 
 ## Screenshots / demo
-<Drop screenshots here, or link your 2-minute demo video.>
+**Demo video (2 min):** TODO add link before submitting.
 
 ## Team
-Teams of 5 (at least 1 builder, 1 product or design, 1 domain expert; plus founder or anyone). Link each name to a GitHub or LinkedIn profile, and replace the example row with your team.
-
 | Name | Role / background |
 |---|---|
-| [Mehul Patel](https://github.com/nomadicmehul) *(example)* | Claude Ambassador, DevRel |
-| [Your name](https://www.linkedin.com/in/your-profile) | Builder / Product or design / Domain expert / Founder |
-| [Your name](https://github.com/your-username) | |
-| [Your name](https://github.com/your-username) | |
-| [Your name](https://github.com/your-username) *(optional)* | |
-| [Your name](https://github.com/your-username) *(optional)* | |
+| [Leonid](https://github.com/Levanidd) | Builder |
+| [vitast](https://github.com/vitast) | TODO role |
+| TODO name | TODO role |
+| TODO name | TODO role |
+| TODO name | TODO role |
 
 ## Credits
 - [Claude API](https://docs.claude.com) by Anthropic — document reading, explanations, German letters.
