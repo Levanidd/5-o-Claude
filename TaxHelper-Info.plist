@@ -4,8 +4,10 @@
 <dict>
 	<key>BackendURL</key>
 	<string>$(BACKEND_URL)</string>
+	<key>NSCameraUsageDescription</key>
+	<string>Take a photo of a letter or decision so Claude can explain it to you.</string>
 	<key>NSLocalNetworkUsageDescription</key>
-	<string>Connects to the Family Support Check helper on your computer to talk to Claude.</string>
+	<string>Connects to the Taxability helper on your computer to talk to Claude.</string>
 	<key>NSAppTransportSecurity</key>
 	<dict>
 		<key>NSAllowsArbitraryLoads</key>

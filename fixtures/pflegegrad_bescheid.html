@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<title>MUSTER – Pflegegrad-Bescheid</title>
+<style>
+  @page { size: A4; margin: 0; }
+  body { margin: 0; font-family: Arial, Helvetica, sans-serif; color: #111; }
+  .page { position: relative; width: 210mm; height: 297mm; padding: 20mm 22mm; box-sizing: border-box; font-size: 11pt; line-height: 1.45; overflow: hidden; }
+  .watermark { position: absolute; top: 40%; left: 50%; transform: translate(-50%, -50%) rotate(-30deg); font-size: 110pt; font-weight: 800; color: rgba(214, 69, 69, 0.13); letter-spacing: 8px; white-space: nowrap; }
+  .logo { display: flex; justify-content: space-between; align-items: flex-start; }
+  .logo .name { font-size: 20pt; font-weight: 700; color: #1f5f8b; }
+  .logo .sub { font-size: 9pt; color: #555; }
+  .sender-line { font-size: 7.5pt; text-decoration: underline; margin-top: 18mm; color: #444; }
+  .address { margin-top: 2mm; }
+  .meta { position: absolute; right: 22mm; top: 48mm; font-size: 9.5pt; text-align: right; }
+  .meta td { padding: 1px 0 1px 8px; }
+  h1 { font-size: 13pt; margin: 22mm 0 2mm; }
+  h2 { font-size: 11pt; margin: 6mm 0 2mm; }
+  p { margin: 0 0 4mm; }
+  .box { border: 1.5px solid #1f5f8b; padding: 4mm 5mm; margin: 4mm 0 5mm; }
+  .box td { padding: 1.5mm 8mm 1.5mm 0; }
+  .footer { position: absolute; bottom: 14mm; left: 22mm; right: 22mm; font-size: 7.5pt; color: #666; border-top: 1px solid #ccc; padding-top: 3mm; display: flex; justify-content: space-between; }
+  .sample { color: #d64545; font-weight: 700; }
+</style>
+</head>
+<body>
+<div class="page">
+  <div class="watermark">MUSTER</div>
+  <div class="logo">
+    <div><div class="name">Muster-Pflegekasse</div><div class="sub">Die Pflegeversicherung Ihrer Muster-Krankenkasse</div></div>
+    <div class="sub">Postfach 10 20 30<br>10115 Berlin<br>Tel. 030 1234 5678</div>
+  </div>
+
+  <div class="sender-line">Muster-Pflegekasse · Postfach 10 20 30 · 10115 Berlin</div>
+  <div class="address">Frau<br>Priya Sharma<br>Musterstraße 12<br>10437 Berlin</div>
+
+  <table class="meta">
+    <tr><td>Datum:</td><td>18.03.2025</td></tr>
+    <tr><td>Aktenzeichen:</td><td>PK-2025-448812</td></tr>
+  </table>
+
+  <h1>Bescheid über die Feststellung der Pflegebedürftigkeit</h1>
+  <p>Sehr geehrte Frau Sharma,</p>
+  <p>auf Grundlage des Gutachtens des Medizinischen Dienstes vom 05.03.2025 stellen wir für die versicherte Person Folgendes fest:</p>
+
+  <div class="box">
+    <table>
+      <tr><td>Versicherte Person:</td><td><b>Arjun Sharma</b>, geb. 04.02.2019</td></tr>
+      <tr><td>Pflegegrad:</td><td><b>3</b> (schwere Beeinträchtigung der Selbständigkeit)</td></tr>
+      <tr><td>Gültig ab:</td><td><b>01.03.2025</b></td></tr>
+      <tr><td>Pflege durch:</td><td>Angehörige in häuslicher Umgebung</td></tr>
+      <tr><td>Pflegegeld:</td><td>599,00 Euro monatlich</td></tr>
+    </table>
+  </div>
+
+  <h2>Hinweis</h2>
+  <p>Laut vorliegendem Bescheid des Landesamts für Gesundheit und Soziales Berlin beträgt der Grad der Behinderung (GdB) 50, ohne Merkzeichen.</p>
+
+  <h2>Rechtsbehelfsbelehrung</h2>
+  <p>Gegen diesen Bescheid kann innerhalb eines Monats nach Bekanntgabe Widerspruch eingelegt werden. Der Widerspruch ist schriftlich oder zur Niederschrift bei der Muster-Pflegekasse einzulegen.</p>
+
+  <p>Mit freundlichen Grüßen<br><br>Ihre Muster-Pflegekasse</p>
+
+  <div class="footer">
+    <span class="sample">MUSTER – SAMPLE DOCUMENT · fiktiv, keine echten Daten</span>
+    <span>Muster-Pflegekasse · Musterallee 1 · 10115 Berlin</span>
+  </div>
+</div>
+</body>
+</html>

@@ -12,6 +12,8 @@ struct DocumentScanView: View {
     @State private var result: AIResult<ExtractedDocument>?
     @State private var acceptGdb = true
     @State private var acceptPg = true
+    @State private var showCamera = false
+    @State private var captured: Data?
 
     var body: some View {
         NavigationStack {
@@ -36,6 +38,12 @@ struct DocumentScanView: View {
                 ToolbarItem(placement: .topBarLeading) { Button(L("Close")) { dismiss() } }
             }
         }
+        .fullScreenCover(isPresented: $showCamera, onDismiss: {
+            if let captured { Task { await read(text: nil, image: captured) } }
+            captured = nil
+        }) {
+            CameraPicker { captured = $0 }.ignoresSafeArea()
+        }
         .onChange(of: photo) { _, item in
             guard let item else { return }
             Task {
@@ -50,10 +58,21 @@ struct DocumentScanView: View {
             Text(L("Take a photo of the care-level decision or disability ID."))
                 .font(.body17)
                 .foregroundStyle(Color.ink500)
-            PhotosPicker(selection: $photo, matching: .images) {
-                Label(L("Choose a photo"), systemImage: "camera")
+            if CameraPicker.isAvailable {
+                Button { showCamera = true } label: {
+                    Label(L("Take a photo"), systemImage: "camera")
+                }
+                .buttonStyle(.aiPrimary)
+                PhotosPicker(selection: $photo, matching: .images) {
+                    Label(L("Choose a photo"), systemImage: "photo.on.rectangle")
+                }
+                .buttonStyle(.secondary)
+            } else {
+                PhotosPicker(selection: $photo, matching: .images) {
+                    Label(L("Choose a photo"), systemImage: "camera")
+                }
+                .buttonStyle(.aiPrimary)
             }
-            .buttonStyle(.aiPrimary)
             Button(L("Use sample decision (MUSTER)")) {
                 Task { await read(text: SampleData.careLevelDecision, image: nil) }
             }

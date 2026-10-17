@@ -6,6 +6,8 @@ struct CaptureView: View {
     @State private var photo: PhotosPickerItem?
     @State private var letter: Letter?
     @State private var showDocScan = false
+    @State private var showCamera = false
+    @State private var captured: Data?
 
     var body: some View {
         NavigationStack {
@@ -19,10 +21,21 @@ struct CaptureView: View {
                         Label(L("Letter from an office"), systemImage: "envelope.open")
                             .font(.heading).foregroundStyle(Color.ink900)
                         Text(L("What it says · what to do · deadline · amount")).font(.system(size: 15)).foregroundStyle(Color.ink500)
-                        PhotosPicker(selection: $photo, matching: .images) {
-                            Label(L("Take or choose a photo"), systemImage: "camera")
+                        if CameraPicker.isAvailable {
+                            Button { showCamera = true } label: {
+                                Label(L("Take a photo"), systemImage: "camera")
+                            }
+                            .buttonStyle(.aiPrimary)
+                            PhotosPicker(selection: $photo, matching: .images) {
+                                Label(L("Choose a photo"), systemImage: "photo.on.rectangle")
+                            }
+                            .buttonStyle(.secondary)
+                        } else {
+                            PhotosPicker(selection: $photo, matching: .images) {
+                                Label(L("Take or choose a photo"), systemImage: "camera")
+                            }
+                            .buttonStyle(.aiPrimary)
                         }
-                        .buttonStyle(.aiPrimary)
                         Button(L("Use sample letter from care insurer (MUSTER)")) {
                             letter = Letter(originalText: SampleData.insurerLetter)
                         }
@@ -45,6 +58,12 @@ struct CaptureView: View {
             .navigationTitle(L("Capture"))
             .navigationDestination(item: $letter) { LetterExplainView(letter: $0) }
             .sheet(isPresented: $showDocScan) { DocumentScanView() }
+            .fullScreenCover(isPresented: $showCamera, onDismiss: {
+                if let captured { letter = Letter(imageData: captured) }
+                captured = nil
+            }) {
+                CameraPicker { captured = $0 }.ignoresSafeArea()
+            }
             .onChange(of: photo) { _, item in
                 guard let item else { return }
                 Task {
