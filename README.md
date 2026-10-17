@@ -25,7 +25,7 @@ Parents of children with disabilities in Germany leave thousands of euros a year
 ## How Claude is used
 Claude is the reading, explaining and writing layer — **not** the decision maker.
 - **Fixed rules decide eligibility and €** (`TaxHelper/Rules/RulesEngine.swift`, 10 German rules, 2026 amounts). Claude never calculates money.
-- Claude (vision + text, default model `claude-sonnet-4-5`, configurable via `ANTHROPIC_MODEL`) does: read official documents into JSON, explain official letters in the parent's language, write formal German letters, explain a card, answer questions on a card.
+- Claude (vision + text, default model `claude-sonnet-5-5`, configurable via `ANTHROPIC_MODEL`) does: read official documents into JSON, explain official letters in the parent's language, write formal German letters, explain a card, answer questions on a card.
 - Every AI output is labelled ✨ (lilac colour), has a "This isn't right" link, and says when it is a cached demo answer.
 - Prompts live in [`prompts/`](prompts/). The API key stays on a tiny Python backend ([`server/server.py`](server/server.py)), never in the app.
 

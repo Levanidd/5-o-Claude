@@ -31,7 +31,7 @@ def load_env():
 
 load_env()
 API_KEY = os.environ.get("ANTHROPIC_API_KEY", "")
-MODEL = os.environ.get("ANTHROPIC_MODEL", "claude-sonnet-4-5")
+MODEL = os.environ.get("ANTHROPIC_MODEL", "claude-sonnet-5-5")
 
 LANGUAGE_NAMES = {
     "en": "English", "de": "German", "tr": "Turkish", "ar": "Arabic",
