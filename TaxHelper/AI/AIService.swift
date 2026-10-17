@@ -82,7 +82,6 @@ enum AIService {
             "lockedTokens": lockedTokens,
             "profile": [
                 "parentName": profile.parentName.isEmpty ? "Priya Sharma" : profile.parentName + " Sharma",
-                "parentAddress": "Musterstraße 12, 10437 Berlin",
                 "childName": profile.childName.isEmpty ? "Arjun Sharma" : profile.childName + " Sharma",
                 "pflegegrad": profile.pflegegrad ?? 0,
                 "gdb": profile.gdb ?? 0,

@@ -15,6 +15,7 @@ struct LetterReplyView: View {
     @State private var loading = false
     @State private var mode = "Side by side"
     @State private var sent = false
+    @State private var copied: String?
 
     init(title: String, intent: String, context: String, lockedTokens: [String], onSent: @escaping () -> Void) {
         self.title = title
@@ -115,7 +116,19 @@ struct LetterReplyView: View {
 
     private func letterBlock(_ label: String, _ text: String, accent: Color, bg: Color, small: Bool = false) -> some View {
         VStack(alignment: .leading, spacing: Space.sm) {
-            Text(label).font(.caption13).foregroundStyle(accent)
+            HStack {
+                Text(label).font(.caption13).foregroundStyle(accent)
+                Spacer(minLength: Space.xs)
+                Button { copy(text) } label: {
+                    Image(systemName: copied == text ? "checkmark" : "doc.on.doc")
+                        .font(.system(size: 15, weight: .semibold))
+                        .foregroundStyle(accent)
+                        .frame(width: 32, height: 32)
+                        .contentShape(Rectangle())
+                }
+                .padding(.vertical, -Space.sm)
+                .accessibilityLabel(copied == text ? L("Copied") : L("Copy"))
+            }
             Text(text)
                 .font(.system(size: small ? 12 : 15))
                 .foregroundStyle(Color.ink900)
@@ -126,6 +139,16 @@ struct LetterReplyView: View {
         .background(bg, in: RoundedRectangle(cornerRadius: 16, style: .continuous))
         .overlay(alignment: .leading) {
             Rectangle().fill(accent).frame(width: 3).clipShape(Capsule()).padding(.vertical, Space.md)
+        }
+    }
+
+    private func copy(_ text: String) {
+        UIPasteboard.general.string = text
+        Haptics.success()
+        withAnimation { copied = text }
+        Task {
+            try? await Task.sleep(for: .seconds(1.5))
+            withAnimation { if copied == text { copied = nil } }
         }
     }
 

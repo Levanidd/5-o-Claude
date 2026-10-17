@@ -92,24 +92,11 @@ enum SampleData {
 
     static let germanDraft = GermanDraft(
         letterDe: """
-        Priya Sharma
-        Musterstraße 12
-        10437 Berlin
-
-        Muster-Pflegekasse
-        Postfach 10 20 30
-        10115 Berlin
-
-        Berlin, 17.10.2026
-
-        Betreff: Nachweis des Beratungseinsatzes nach § 37 Abs. 3 SGB XI – Aktenzeichen PK-2025-448812
-        Versicherte Person: Arjun Sharma, geb. 04.02.2019
-
         Sehr geehrte Damen und Herren,
 
-        vielen Dank für Ihr Schreiben vom 17.10.2026.
+        vielen Dank für Ihr Schreiben vom 17.10.2026 zum Aktenzeichen PK-2025-448812.
 
-        Ich habe den Beratungseinsatz für meinen Sohn Arjun Sharma bereits bei einem zugelassenen Pflegedienst für den 05.11.2026 vereinbart. Den Nachweis werde ich Ihnen unmittelbar nach dem Termin und damit vor Ablauf der Frist am 14.11.2026 zusenden.
+        Ich habe den Beratungseinsatz für meinen Sohn Arjun Sharma (geb. 04.02.2019) bereits bei einem zugelassenen Pflegedienst für den 05.11.2026 vereinbart. Den Nachweis werde ich Ihnen unmittelbar nach dem Termin und damit vor Ablauf der Frist am 14.11.2026 zusenden.
 
         Ich bitte Sie daher, von einer Kürzung des Pflegegeldes abzusehen.
 
@@ -118,24 +105,11 @@ enum SampleData {
         Priya Sharma
         """,
         translation: """
-        Priya Sharma
-        Musterstraße 12
-        10437 Berlin
-
-        Muster-Pflegekasse
-        PO Box 10 20 30
-        10115 Berlin
-
-        Berlin, 17.10.2026
-
-        Subject: Proof of the advice visit under § 37 (3) SGB XI – file number PK-2025-448812
-        Insured person: Arjun Sharma, born 04.02.2019
-
         Dear Sir or Madam,
 
-        thank you for your letter of 17.10.2026.
+        thank you for your letter of 17.10.2026 regarding file number PK-2025-448812.
 
-        I have already booked the advice visit for my son Arjun Sharma with an approved care service for 05.11.2026. I will send you the proof right after the appointment, before the deadline of 14.11.2026.
+        I have already booked the advice visit for my son Arjun Sharma (born 04.02.2019) with an approved care service for 05.11.2026. I will send you the proof right after the appointment, before the deadline of 14.11.2026.
 
         I therefore ask you not to reduce the care allowance.
 

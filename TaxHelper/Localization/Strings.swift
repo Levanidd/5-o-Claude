@@ -325,6 +325,8 @@ enum Strings {
         ("German letter", "Deutscher Brief", "Письмо на немецком"),
         ("Share / print German letter", "Deutschen Brief teilen / drucken", "Поделиться / распечатать письмо"),
         ("I've sent it", "Ich habe ihn verschickt", "Я отправил(а)"),
+        ("Copy", "Kopieren", "Копировать"),
+        ("Copied", "Kopiert", "Скопировано"),
         ("Check the letter before sending. The German version is the one that counts legally.", "Prüfe den Brief vor dem Versand. Rechtlich zählt die deutsche Fassung.", "Проверьте письмо перед отправкой. Юридическую силу имеет немецкая версия."),
 
         // Document scan
