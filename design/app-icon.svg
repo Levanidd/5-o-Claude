@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1024" height="1024" viewBox="0 0 1024 1024">
+  <defs>
+    <radialGradient id="bg" cx="28%" cy="18%" r="95%">
+      <stop offset="0" stop-color="#1A7A55"/>
+      <stop offset="1" stop-color="#0B3D2E"/>
+    </radialGradient>
+    <linearGradient id="coin" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#FFDC7A"/>
+      <stop offset="1" stop-color="#E8A52C"/>
+    </linearGradient>
+    <filter id="shadow" x="-30%" y="-30%" width="160%" height="160%">
+      <feDropShadow dx="0" dy="20" stdDeviation="26" flood-color="#000" flood-opacity="0.30"/>
+    </filter>
+  </defs>
+
+  <rect width="1024" height="1024" fill="url(#bg)"/>
+
+  <g filter="url(#shadow)" transform="rotate(-7 440 520)">
+    <path d="M240 190 H560 L700 330 V810 A44 44 0 0 1 656 854 H240 A44 44 0 0 1 196 810 V234 A44 44 0 0 1 240 190 Z" fill="#FAF8F4"/>
+    <path d="M560 190 V286 A44 44 0 0 0 604 330 H700 Z" fill="#D5E6DD"/>
+    <rect x="262" y="296" width="210" height="30" rx="15" fill="#C4D3CB"/>
+    <rect x="262" y="366" width="330" height="30" rx="15" fill="#C4D3CB"/>
+    <rect x="262" y="436" width="270" height="30" rx="15" fill="#C4D3CB"/>
+    <path d="M300 622 L392 714 L582 524" fill="none" stroke="#00B26B" stroke-width="70" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+
+  <g filter="url(#shadow)">
+    <circle cx="726" cy="742" r="168" fill="url(#coin)"/>
+    <circle cx="726" cy="742" r="136" fill="none" stroke="#D99A2B" stroke-width="10"/>
+    <text x="726" y="742" font-family="-apple-system, 'SF Pro Rounded', 'Helvetica Neue', Arial, sans-serif" font-weight="800" font-size="210" fill="#7A4E05" text-anchor="middle" dominant-baseline="central">&#8364;</text>
+  </g>
+</svg>
