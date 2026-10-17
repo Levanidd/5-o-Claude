@@ -61,6 +61,16 @@ Claude is the reading, explaining and writing layer — **not** the decision mak
 ## Screenshots / demo
 **Demo video (2 min):** TODO add link before submitting.
 
+<p>
+  <img src="docs/screenshots/1-language.png" width="160" alt="Choose your language">
+  <img src="docs/screenshots/2-welcome.png" width="160" alt="Welcome screen">
+  <img src="docs/screenshots/3-dashboard.png" width="160" alt="Dashboard with € secured, next best action and deadlines">
+  <img src="docs/screenshots/4-card.png" width="160" alt="Care allowance card: why you qualify, AI explanation">
+  <img src="docs/screenshots/5-german-letter.png" width="160" alt="German letter side by side with an English translation">
+</p>
+
+Language choice → welcome → dashboard (€ secured, next best action, deadlines with next steps) → an explainable card (fixed rules decide, Claude explains) → a German letter written by Claude, side by side with a translation.
+
 ## Team
 | Name | Role / background |
 |---|---|
