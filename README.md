@@ -107,6 +107,20 @@ The partner pays, not the parent. We never hold her money. These are planned rou
 
 Language choice → welcome → dashboard (€ secured, next best action, deadlines with next steps) → an explainable card (fixed rules decide, Claude explains) → a German letter written by Claude, side by side with a translation.
 
+### Pitch deck
+Download: [`docs/Taxability-Video-Pitch.pptx`](docs/Taxability-Video-Pitch.pptx)
+
+<p>
+  <img src="docs/pitch/slide-1.png" width="400" alt="€8,000 a year she's owed. Nobody told her.">
+  <img src="docs/pitch/slide-2.png" width="400" alt="Meet the family: Lisa, 35, and Tina, 5">
+  <img src="docs/pitch/slide-3.png" width="400" alt="Doing it alone wastes her time and money">
+  <img src="docs/pitch/slide-4.png" width="400" alt="The opportunity">
+  <img src="docs/pitch/slide-5.png" width="400" alt="What makes it different">
+  <img src="docs/pitch/slide-6.png" width="400" alt="Go-to-market">
+  <img src="docs/pitch/slide-7.png" width="400" alt="The team, 5 o'Claude">
+  <img src="docs/pitch/slide-8.png" width="400" alt="Let's build a future for kids with special needs, now">
+</p>
+
 ## Team · 5 o'Claude
 Builders, design and lived experience.
 
