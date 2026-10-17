@@ -1,4 +1,4 @@
-"""Tiny backend for Family Support Check.
+"""Tiny backend for Taxability.
 
 Keeps the Anthropic API key off the phone. Standard library only:
     python3 server/server.py
@@ -187,5 +187,5 @@ class Handler(BaseHTTPRequestHandler):
 
 
 if __name__ == "__main__":
-    print(f"Family Support Check backend on http://127.0.0.1:{PORT}  model={MODEL}  key={'yes' if API_KEY else 'MISSING'}")
+    print(f"Taxability backend on http://127.0.0.1:{PORT}  model={MODEL}  key={'yes' if API_KEY else 'MISSING'}")
     ThreadingHTTPServer(("0.0.0.0", PORT), Handler).serve_forever()

@@ -8,7 +8,7 @@ struct LanguageView: View {
             EuroBackdrop()
             VStack(alignment: .leading, spacing: Space.xxl) {
                 Spacer().frame(height: Space.xxl)
-                Text(L("Family Support Check"))
+                Text(L("Taxability"))
                     .font(.caption13)
                     .foregroundStyle(Color.green800)
                     .padding(.horizontal, 10).padding(.vertical, 5)

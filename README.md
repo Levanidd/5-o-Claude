@@ -6,7 +6,7 @@
 >
 > 🔑 Set your API key first: `cp .env.example .env`, then paste your key into `.env` (it's git-ignored, never commit it).
 
-# Family Support Check
+# Taxability
 
 **One line:** An iOS app that finds the money and support parents of disabled children in Germany are entitled to, explains it in their own language, and writes the German letters for them.
 
