@@ -1,0 +1,35 @@
+# Slide 6 – How it works (update v2)
+
+Replace the current text on slide 6 with the copy below. Keep the existing layout: 4 cards with arrows between them, and step 4 stays as the dark card.
+
+## Header
+
+- **Eyebrow:** THE SOLUTION
+- **Headline:** Every euro she's owed, starting at the tax return
+
+## The 4 steps
+
+Keep each card to one short line. The pill under each card is a proof point, not a slogan.
+
+| # | Title | Card text | Pill (directly under this card) |
+|---|---|---|---|
+| 1 | **Connect** | Start in the Taxfix return, or snap a document. | 3 minutes · no German needed |
+| 2 | **Understand** | AI finds every benefit and explains it in her language. | The law behind every euro |
+| 3 | **Claim** | One tap into Taxfix. AI writes the German letters for the rest. | +€[X] a year *(number from our demo family)* |
+| 4 | **Stay ahead** | Deadline reminders, new grants, parents like her. | Never miss a change |
+
+**Live demo marker:** add a small "Live in demo" label on cards 1–3. Step 4 has no label because it's mocked.
+
+## Footer
+
+Change "Lotse · 6" to **"Taxability · 6"**.
+
+## What to remove
+
+- All four current pills ("Inside Taxfix or standalone", "Agent books appointments, stores and translates documents", "Communities and support organisations", "Refund reinvested in a fund for the child").
+- "Claude" in step 2. It now says "AI".
+- The "refund into a fund for the child" idea. Investing is a separate product and will draw regulatory questions away from the main story.
+
+## Speaker line
+
+"She connects once, AI shows her what she's owed and why, she claims it in one tap through Taxfix, and Taxability keeps watch from then on."
