@@ -53,12 +53,6 @@ struct FamilyView: View {
                 }
                 Section {
                     Button(L("Delete my data"), role: .destructive) { confirmReset = true }
-                        .confirmationDialog(L("Delete all data on this phone?"), isPresented: $confirmReset, titleVisibility: .visible) {
-                            Button(L("Delete"), role: .destructive) { app.reset() }
-                            Button(L("Cancel"), role: .cancel) {}
-                        } message: {
-                            Text(L("Your answers, letters and deadlines on this phone will be deleted. This can't be undone."))
-                        }
                 } footer: {
                     Text(L("Information, not legal or tax advice. Amounts are estimates. Official decisions come from the authorities."))
                 }
@@ -66,6 +60,12 @@ struct FamilyView: View {
             .scrollContentBackground(.hidden)
             .screenBackground()
             .navigationTitle(L("Family"))
+            .alert(L("Delete all data on this phone?"), isPresented: $confirmReset) {
+                Button(L("Cancel"), role: .cancel) {}
+                Button(L("Delete"), role: .destructive) { app.reset() }
+            } message: {
+                Text(L("Your answers, letters and deadlines on this phone will be deleted. This can't be undone."))
+            }
         }
     }
 
