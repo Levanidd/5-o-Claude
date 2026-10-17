@@ -39,7 +39,7 @@ open TaxHelper.xcodeproj      # run the TaxHelper scheme on an iPhone simulator
 ```
 
 - Fastest demo: on the welcome screen tap **"Use demo family (Priya & Arjun)"**, then Capture → **"Use sample letter from care insurer (MUSTER)"** → **Reply in German**.
-- On a real iPhone: Family tab → AI connection → set the backend URL to your Mac's IP (e.g. `http://192.168.1.20:8787`).
+- On a real iPhone: Family tab → AI connection → set the backend URL to your Mac's IP (e.g. `http://192.168.1.20:8787`). If the Wi-Fi blocks phone-to-laptop traffic, run `cloudflared tunnel --url http://localhost:8787` and use the `https://….trycloudflare.com` address it prints instead.
 - **Demo mode** (Family tab) uses cached AI answers, so the pitch works offline. If the backend is unreachable the app falls back to them automatically.
 - Printable fictional documents to photograph: `fixtures/pflegegrad_bescheid.pdf` (care-level decision) and `fixtures/pflegekasse_brief.pdf` (letter from the care insurer). Video script: [DEMO.md](DEMO.md).
 

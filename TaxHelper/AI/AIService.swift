@@ -23,6 +23,15 @@ enum AIService {
         return saved.isEmpty ? defaultURL : saved
     }
 
+    /// A URL typed in the Family tab only applies to the build it was typed in.
+    /// A new build with a different backend URL (e.g. a new tunnel) clears it.
+    static func dropStaleOverride() {
+        let defaults = UserDefaults.standard
+        guard defaults.string(forKey: "backendURL.build") != defaultURL else { return }
+        defaults.removeObject(forKey: "backendURL")
+        defaults.set(defaultURL, forKey: "backendURL.build")
+    }
+
     static var demoMode: Bool {
         UserDefaults.standard.bool(forKey: "demoMode")
     }
