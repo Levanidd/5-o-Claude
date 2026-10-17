@@ -1,24 +1,23 @@
-//
-//  ContentView.swift
-//  TaxHelper
-//
-//  Created by Леонид on 10/17/26.
-//
-
 import SwiftUI
 
 struct ContentView: View {
+    @Environment(AppState.self) private var app
+
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+        Group {
+            switch app.stage {
+            case .language: LanguageView()
+            case .welcome: WelcomeView()
+            case .profile: ProfileFlowView()
+            case .result: ResultView()
+            case .main: MainTabView()
+            }
         }
-        .padding()
+        .animation(.smooth, value: app.stage)
+        .environment(\.layoutDirection, app.language == .ar ? .rightToLeft : .leftToRight)
     }
 }
 
 #Preview {
-    ContentView()
+    ContentView().environment(AppState())
 }

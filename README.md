@@ -6,25 +6,41 @@
 >
 > 🔑 Set your API key first: `cp .env.example .env`, then paste your key into `.env` (it's git-ignored, never commit it).
 
-# <Project name>
+# Family Support Check
 
-**One line:** <what it does, for whom>
+**One line:** An iOS app that finds the money and support parents of disabled children in Germany are entitled to, explains it in their own language, and writes the German letters for them.
 
 ## The problem
-<Who has this problem, and why it matters. 2–3 sentences.>
+Parents of children with disabilities in Germany leave thousands of euros a year unclaimed: tax allowances, care budgets, supplies. The rules are spread across tax law and care insurance, and every letter is in official German. Expats and newcomers who don't read German are hit hardest.
 
 ## What it does
-<What a user can do with it. A short list is fine.>
+- **Quick check (~90 s, no account):** one question per screen, a live "€ found" meter climbs with every answer.
+- **Result:** "≈ €X per year + €Y from past years", ranked opportunities.
+- **Explainable cards:** "Why you qualify" rule chain, how we calculated it, legal source, confidence badge (Confirmed / Likely / Needs 1 answer).
+- **Scan, then confirm:** photo of a care-level decision → Claude reads the fields → parent confirms each value.
+- **Official letter explainer:** photo of a German letter → what it says, what to do, deadline, amount — in the parent's language. Deadline lands on the dashboard.
+- **Reply in German:** the parent writes in their language → formal German letter, side by side with a translation, locked file numbers/dates, share or print.
+- **Dashboard:** € secured vs. € open, one Next best action, deadlines. "Add to Taxfix return" is a mock handoff.
 
 ## How Claude is used
-<What Claude does inside the product: which model, what it reads, what it produces.>
+Claude is the reading, explaining and writing layer — **not** the decision maker.
+- **Fixed rules decide eligibility and €** (`TaxHelper/Rules/RulesEngine.swift`, 10 German rules, 2026 amounts). Claude never calculates money.
+- Claude (vision + text, default model `claude-sonnet-4-5`, configurable via `ANTHROPIC_MODEL`) does: read official documents into JSON, explain official letters in the parent's language, write formal German letters, explain a card, answer questions on a card.
+- Every AI output is labelled ✨ (lilac colour), has a "This isn't right" link, and says when it is a cached demo answer.
+- Prompts live in [`prompts/`](prompts/). The API key stays on a tiny Python backend ([`server/server.py`](server/server.py)), never in the app.
 
 ## How to run it
+Requirements: macOS with Xcode 27 (iOS 27 simulator), Python 3.
+
 ```bash
-cp .env.example .env    # paste your ANTHROPIC_API_KEY into .env
-# then the commands to start it, e.g.
-# python app.py   or   npm install && npm run dev   or   open index.html
+cp .env.example .env          # paste your ANTHROPIC_API_KEY into .env
+python3 server/server.py      # backend on http://127.0.0.1:8787 (standard library only)
+open TaxHelper.xcodeproj      # run the TaxHelper scheme on an iPhone simulator
 ```
+
+- Fastest demo: on the welcome screen tap **"Use demo family (Priya & Arjun)"**, then Capture → **"Use sample letter from care insurer (MUSTER)"** → **Reply in German**.
+- On a real iPhone: Family tab → AI connection → set the backend URL to your Mac's IP (e.g. `http://192.168.1.20:8787`).
+- **Demo mode** (Family tab) uses cached AI answers, so the pitch works offline. If the backend is unreachable the app falls back to them automatically.
 
 **Live link (if any):** <link>
 
@@ -44,4 +60,7 @@ Teams of 5 (at least 1 builder, 1 product or design, 1 domain expert; plus found
 | [Your name](https://github.com/your-username) *(optional)* | |
 
 ## Credits
-<Open-source libraries, APIs, datasets and assets you used.>
+- [Claude API](https://docs.claude.com) by Anthropic — document reading, explanations, German letters.
+- Apple SwiftUI, PhotosUI and SF Symbols.
+- Rule amounts compiled from §33b EStG and SGB XI (gesetze-im-internet.de) and the secondary sources listed in `Project context.MD`.
+- Colours approximate the Taxfix brand; no Taxfix logos or illustrations are used. All documents are fictional "MUSTER" samples, no real personal data.
