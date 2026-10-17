@@ -6,7 +6,7 @@ Built in one day by team **5 o'Claude** at the [Claude Impact Lab Berlin](https:
 
 > **€8,000 a year she's owed. Nobody told her.**
 >
-> 🎬 **[Watch the 2-minute demo video](https://drive.google.com/file/d/1pK2gYhJGiihuiE9ouEou_iNGRZ2zM0MD/view?usp=sharing)**
+> 🎬 **[Watch the 2-minute demo video](https://drive.google.com/file/d/11LeJGH7saMunMbc2FFCkT01RWgBzVqpf/view?usp=share_link)**
 
 ## Who it is for
 Parents of children with disabilities in Germany, especially single parents and newcomers who don't read official German.
@@ -97,7 +97,7 @@ The partner pays, not the parent. We never hold her money. These are planned rou
 **Next:** a pilot with 100 families. Give parents their time and money back.
 
 ## Screenshots / demo
-**Demo video (2 min):** [watch on Google Drive](https://drive.google.com/file/d/1pK2gYhJGiihuiE9ouEou_iNGRZ2zM0MD/view?usp=sharing)
+**Demo video (2 min):** [watch on Google Drive](https://drive.google.com/file/d/11LeJGH7saMunMbc2FFCkT01RWgBzVqpf/view?usp=share_link)
 
 <p>
   <img src="docs/screenshots/1-language.png" width="160" alt="Choose your language">
