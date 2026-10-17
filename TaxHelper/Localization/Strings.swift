@@ -366,6 +366,8 @@ enum Strings {
         ("Delete my data", "Meine Daten löschen", "Удалить мои данные"),
         ("Delete all data on this phone?", "Alle Daten auf diesem Handy löschen?", "Удалить все данные на этом телефоне?"),
         ("Delete", "Löschen", "Удалить"),
+        ("Cancel", "Abbrechen", "Отмена"),
+        ("Your answers, letters and deadlines on this phone will be deleted. This can't be undone.", "Deine Antworten, Briefe und Fristen auf diesem Handy werden gelöscht. Das lässt sich nicht rückgängig machen.", "Ваши ответы, письма и сроки на этом телефоне будут удалены. Отменить это нельзя."),
     ]
 
     static let de: [String: String] = Dictionary(rows.map { ($0.en, $0.de) }, uniquingKeysWith: { first, _ in first })

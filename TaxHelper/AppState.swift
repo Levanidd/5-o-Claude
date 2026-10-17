@@ -78,6 +78,8 @@ final class AppState {
         statuses = [:]
         profileStep = 0
         letters = []
+        deadlines = []
+        banner = nil
         stage = .language
     }
 
