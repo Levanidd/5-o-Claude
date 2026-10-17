@@ -9,15 +9,15 @@ struct MoneyView: View {
         NavigationStack {
             ScrollView {
                 VStack(alignment: .leading, spacing: Space.lg) {
-                    Picker("Filter", selection: $filter) {
-                        ForEach(filters, id: \.self) { Text($0) }
+                    Picker(L("Filter"), selection: $filter) {
+                        ForEach(filters, id: \.self) { Text(L($0)) }
                     }
                     .pickerStyle(.segmented)
 
                     ForEach(CaseStatus.allCases, id: \.self) { status in
                         let items = filtered.filter { app.status($0) == status }
                         if !items.isEmpty {
-                            Text(status == .approved ? "Already coming in" : status.label)
+                            Text(status == .approved ? L("Already coming in") : status.label)
                                 .font(.heading)
                                 .foregroundStyle(Color.ink900)
                                 .padding(.top, Space.sm)
@@ -33,7 +33,7 @@ struct MoneyView: View {
                 .padding(Space.lg)
             }
             .screenBackground()
-            .navigationTitle("Money")
+            .navigationTitle(L("Money"))
             .navigationDestination(for: Opportunity.self) { OpportunityDetailView(opportunity: $0) }
         }
     }

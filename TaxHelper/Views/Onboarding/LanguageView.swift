@@ -8,15 +8,15 @@ struct LanguageView: View {
             EuroBackdrop()
             VStack(alignment: .leading, spacing: Space.xxl) {
                 Spacer().frame(height: Space.xxl)
-                Text("Family Support Check")
+                Text(L("Family Support Check"))
                     .font(.caption13)
                     .foregroundStyle(Color.green800)
                     .padding(.horizontal, 10).padding(.vertical, 5)
                     .background(Color.green100, in: Capsule())
-                Text("Which language do you prefer?")
+                Text(L("Which language do you prefer?"))
                     .font(.title)
                     .foregroundStyle(Color.ink900)
-                Text("Everything is explained in your language. Letters to German offices are written in German for you.")
+                Text(L("Everything is explained in your language. Letters to German offices are written in German for you."))
                     .font(.body17)
                     .foregroundStyle(Color.ink500)
 
@@ -46,8 +46,17 @@ struct LanguageView: View {
                     }
                 }
 
+                if L10n.shared.translating {
+                    HStack(spacing: Space.sm) {
+                        ProgressView().tint(Color.lilac700)
+                        Text(L("Claude is translating the app…")).font(.system(size: 15)).foregroundStyle(Color.lilac700)
+                    }
+                } else if L10n.shared.failed {
+                    Text(L("Couldn't translate right now — showing English.")).font(.system(size: 15)).foregroundStyle(Color.ink500)
+                }
+
                 Spacer()
-                Button("Continue") { app.stage = .welcome }
+                Button(L("Continue")) { app.stage = .welcome }
                     .buttonStyle(.primary)
             }
             .padding(Space.xl)

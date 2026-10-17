@@ -22,7 +22,7 @@ struct HomeView: View {
                 .padding(Space.lg)
             }
             .screenBackground()
-            .navigationTitle(app.profile.parentName.isEmpty ? "Hello" : "Hello, \(app.profile.parentName)")
+            .navigationTitle(app.profile.parentName.isEmpty ? L("Hello") : L("Hello, %@", app.profile.parentName))
             .navigationDestination(for: Opportunity.self) { OpportunityDetailView(opportunity: $0) }
         }
     }
@@ -44,19 +44,19 @@ struct HomeView: View {
             .frame(width: 88, height: 88)
             VStack(alignment: .leading, spacing: Space.sm) {
                 VStack(alignment: .leading, spacing: 0) {
-                    Text("€ secured / year").font(.caption13).foregroundStyle(Color.ink500)
+                    Text(L("€ secured / year")).font(.caption13).foregroundStyle(Color.ink500)
                     Text(euro(secured)).font(.system(size: 28, weight: .semibold, design: .rounded).monospacedDigit())
                         .foregroundStyle(Color.green800)
                         .contentTransition(.numericText(value: secured))
                 }
                 VStack(alignment: .leading, spacing: 0) {
-                    Text("€ still open / year").font(.caption13).foregroundStyle(Color.ink500)
+                    Text(L("€ still open / year")).font(.caption13).foregroundStyle(Color.ink500)
                     Text("≈ " + euro(open)).font(.system(size: 20, weight: .semibold, design: .rounded).monospacedDigit())
                         .foregroundStyle(Color.ink900)
                         .contentTransition(.numericText(value: open))
                 }
                 if app.openOnce > 0 {
-                    Text("+ \(euro(app.openOnce)) from past years").font(.caption13).foregroundStyle(Color.ink500)
+                    Text(L("+ %@ from past years", euro(app.openOnce))).font(.caption13).foregroundStyle(Color.ink500)
                 }
             }
             Spacer(minLength: 0)
@@ -69,20 +69,20 @@ struct HomeView: View {
         if let o = app.nextBestAction {
             NavigationLink(value: o) {
                 VStack(alignment: .leading, spacing: Space.md) {
-                    Label("NEXT BEST ACTION", systemImage: "play.fill")
+                    Label(L("NEXT BEST ACTION"), systemImage: "play.fill")
                         .font(.caption13)
                         .foregroundStyle(Color.green100)
                     Text(o.title).font(.heading).foregroundStyle(.white)
                     HStack(spacing: Space.sm) {
-                        Text(o.valueOnce > 0 ? euro(o.valueOnce) : "≈ \(euro(o.valuePerYear))/yr")
-                        Text("·")
-                        Text("\(o.effortMinutes) min")
-                        Text("·")
+                        Text(o.valueOnce > 0 ? euro(o.valueOnce) : "≈ " + L("%@/yr", euro(o.valuePerYear)))
+                        Text(L("·"))
+                        Text(L("%@ min", o.effortMinutes))
+                        Text(L("·"))
                         Text(o.confidence.label)
                     }
                     .font(.system(size: 15, weight: .medium))
                     .foregroundStyle(Color.green100)
-                    Text("Start")
+                    Text(L("Start"))
                         .font(.system(size: 17, weight: .semibold))
                         .foregroundStyle(Color.green800)
                         .frame(maxWidth: .infinity, minHeight: 44)
@@ -97,9 +97,9 @@ struct HomeView: View {
 
     private var deadlines: some View {
         VStack(alignment: .leading, spacing: Space.md) {
-            Text("Deadlines").font(.heading).foregroundStyle(Color.ink900)
+            Text(L("Deadlines")).font(.heading).foregroundStyle(Color.ink900)
             if app.deadlines.isEmpty {
-                Text("No deadlines yet. Scan an official letter and we'll add its deadline here.")
+                Text(L("No deadlines yet. Scan an official letter and we'll add its deadline here."))
                     .font(.system(size: 15)).foregroundStyle(Color.ink500)
             }
             ForEach(app.deadlines) { d in
@@ -118,9 +118,9 @@ struct HomeView: View {
 
     private var forYou: some View {
         VStack(alignment: .leading, spacing: Space.md) {
-            Text("For you").font(.heading).foregroundStyle(Color.ink900)
+            Text(L("For you")).font(.heading).foregroundStyle(Color.ink900)
             Button { goTo(.capture) } label: {
-                feedRow("envelope.open", "Got a letter in German?", "Take a photo — we'll explain it in \(app.language.name).")
+                feedRow("envelope.open", L("Got a letter in German?"), L("Take a photo — we'll explain it in %@.", app.language.name))
             }
             if app.profile.newToGermany == true {
                 feedRow("airplane.arrival", "New to Germany checklist", "Anmeldung, health insurance, Kindergeld, tax ID, German GdB assessment.")
@@ -134,8 +134,8 @@ struct HomeView: View {
         HStack(alignment: .top, spacing: Space.md) {
             Image(systemName: icon).foregroundStyle(Color.blue500).frame(width: 24)
             VStack(alignment: .leading, spacing: 2) {
-                Text(title).font(.system(size: 15, weight: .semibold)).foregroundStyle(Color.ink900)
-                Text(text).font(.system(size: 13)).foregroundStyle(Color.ink500).multilineTextAlignment(.leading)
+                Text(L(title)).font(.system(size: 15, weight: .semibold)).foregroundStyle(Color.ink900)
+                Text(L(text)).font(.system(size: 13)).foregroundStyle(Color.ink500).multilineTextAlignment(.leading)
             }
             Spacer(minLength: 0)
         }

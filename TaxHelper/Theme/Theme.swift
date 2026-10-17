@@ -107,7 +107,7 @@ extension View {
 }
 
 struct AILabel: View {
-    var text = "AI-read"
+    var text = L("AI-read")
     var body: some View {
         Label(text, systemImage: "sparkles")
             .font(.caption13)
@@ -120,7 +120,7 @@ struct AILabel: View {
 }
 
 struct AIBlock<Content: View>: View {
-    var label = "AI-written"
+    var label = L("AI-written")
     var onReport: (() -> Void)?
     @ViewBuilder var content: Content
 
@@ -129,7 +129,7 @@ struct AIBlock<Content: View>: View {
             AILabel(text: label)
             content
             if let onReport {
-                Button("This isn't right", action: onReport)
+                Button(L("This isn't right"), action: onReport)
                     .font(.caption13)
                     .foregroundStyle(Color.lilac700)
             }
@@ -162,7 +162,7 @@ struct Chip: View {
 
 struct EuroBackdrop: View {
     var body: some View {
-        Text("€")
+        Text(L("€"))
             .font(.system(size: 420, weight: .bold, design: .rounded))
             .foregroundStyle(Color.green500.opacity(0.06))
             .offset(x: 120, y: -80)

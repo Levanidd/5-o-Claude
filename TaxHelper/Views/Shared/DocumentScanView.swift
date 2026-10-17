@@ -18,7 +18,7 @@ struct DocumentScanView: View {
             ScrollView {
                 VStack(alignment: .leading, spacing: Space.xl) {
                     if loading {
-                        ProgressView("Claude is reading your document…")
+                        ProgressView(L("Claude is reading your document…"))
                             .tint(Color.lilac700)
                             .frame(maxWidth: .infinity, minHeight: 200)
                     } else if let result {
@@ -30,10 +30,10 @@ struct DocumentScanView: View {
                 .padding(Space.xl)
             }
             .screenBackground()
-            .navigationTitle("Scan document")
+            .navigationTitle(L("Scan document"))
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
-                ToolbarItem(placement: .topBarLeading) { Button("Close") { dismiss() } }
+                ToolbarItem(placement: .topBarLeading) { Button(L("Close")) { dismiss() } }
             }
         }
         .onChange(of: photo) { _, item in
@@ -47,14 +47,14 @@ struct DocumentScanView: View {
 
     private var picker: some View {
         VStack(alignment: .leading, spacing: Space.lg) {
-            Text("Take a photo of the care-level decision or disability ID.")
+            Text(L("Take a photo of the care-level decision or disability ID."))
                 .font(.body17)
                 .foregroundStyle(Color.ink500)
             PhotosPicker(selection: $photo, matching: .images) {
-                Label("Choose a photo", systemImage: "camera")
+                Label(L("Choose a photo"), systemImage: "camera")
             }
             .buttonStyle(.aiPrimary)
-            Button("Use sample decision (MUSTER)") {
+            Button(L("Use sample decision (MUSTER)")) {
                 Task { await read(text: SampleData.careLevelDecision, image: nil) }
             }
             .buttonStyle(.secondary)
@@ -64,28 +64,28 @@ struct DocumentScanView: View {
     private func confirmation(_ r: AIResult<ExtractedDocument>) -> some View {
         let doc = r.value
         return VStack(alignment: .leading, spacing: Space.lg) {
-            AIBlock(label: r.fromCache ? "AI-read · demo answer" : "AI-read") {
-                Text(doc.summary ?? "Here's what we read.")
+            AIBlock(label: r.fromCache ? L("AI-read · demo answer") : L("AI-read")) {
+                Text(doc.summary ?? L("Here's what we read."))
                     .font(.body17)
                     .foregroundStyle(Color.ink900)
             }
 
-            Text("Please check these values").font(.heading).foregroundStyle(Color.ink900)
+            Text(L("Please check these values")).font(.heading).foregroundStyle(Color.ink900)
 
             if let pg = doc.pflegegrad {
-                confirmRow("Care level (Pflegegrad)", "\(pg)", isOn: $acceptPg)
+                confirmRow(L("Care level (Pflegegrad)"), "\(pg)", isOn: $acceptPg)
             }
             if let gdb = doc.gdb {
-                confirmRow("Disability degree (GdB)", "\(gdb)", isOn: $acceptGdb)
+                confirmRow(L("Disability degree (GdB)"), "\(gdb)", isOn: $acceptGdb)
             }
             if let since = doc.validFrom {
-                infoRow("Valid from", since)
+                infoRow(L("Valid from"), since)
             }
             if let file = doc.fileNumber {
-                infoRow("File number", file)
+                infoRow(L("File number"), file)
             }
 
-            Button("Confirm and update my estimate") {
+            Button(L("Confirm and update my estimate")) {
                 apply(doc)
                 Haptics.success()
                 dismiss()
@@ -93,7 +93,7 @@ struct DocumentScanView: View {
             }
             .buttonStyle(.primary)
 
-            Button("Retake") { result = nil; photo = nil }
+            Button(L("Retake")) { result = nil; photo = nil }
                 .buttonStyle(.secondary)
         }
     }
@@ -106,7 +106,7 @@ struct DocumentScanView: View {
                     Text(value).font(.heading).foregroundStyle(Color.ink900)
                 }
                 Spacer()
-                Label(isOn.wrappedValue ? "Correct" : "Ignore", systemImage: isOn.wrappedValue ? "checkmark.circle.fill" : "xmark.circle")
+                Label(isOn.wrappedValue ? L("Correct") : L("Ignore"), systemImage: isOn.wrappedValue ? "checkmark.circle.fill" : "xmark.circle")
                     .font(.caption13)
                     .foregroundStyle(isOn.wrappedValue ? Color.green800 : Color.ink500)
             }

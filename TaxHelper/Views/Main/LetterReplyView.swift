@@ -28,8 +28,8 @@ struct LetterReplyView: View {
         ScrollView {
             VStack(alignment: .leading, spacing: Space.lg) {
                 VStack(alignment: .leading, spacing: Space.sm) {
-                    Text("Say it in \(app.language.name)").font(.heading).foregroundStyle(Color.ink900)
-                    Text("Write what you want to tell the office. Claude turns it into a correct, formal German letter.")
+                    Text(L("Say it in %@", app.language.name)).font(.heading).foregroundStyle(Color.ink900)
+                    Text(L("Write what you want to tell the office. Claude turns it into a correct, formal German letter."))
                         .font(.system(size: 15)).foregroundStyle(Color.ink500)
                     TextEditor(text: $intent)
                         .font(.body17)
@@ -44,7 +44,7 @@ struct LetterReplyView: View {
                     Task { await generate() }
                 } label: {
                     if loading { ProgressView().tint(.white) }
-                    else { Label(draft == nil ? "Write my German letter" : "Write again", systemImage: "sparkles") }
+                    else { Label(draft == nil ? L("Write my German letter") : L("Write again"), systemImage: "sparkles") }
                 }
                 .buttonStyle(.aiPrimary)
                 .disabled(intent.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty || loading)
@@ -61,20 +61,20 @@ struct LetterReplyView: View {
     @ViewBuilder
     private func result(_ r: AIResult<GermanDraft>) -> some View {
         let d = r.value
-        AILabel(text: r.fromCache ? "AI-drafted · demo answer" : "AI-drafted · please review")
+        AILabel(text: r.fromCache ? L("AI-drafted · demo answer") : L("AI-drafted · please review"))
 
-        Picker("View", selection: $mode) {
-            Text("Side by side").tag("Side by side")
-            Text("German").tag("German")
+        Picker(L("View"), selection: $mode) {
+            Text(L("Side by side")).tag("Side by side")
+            Text(L("German")).tag("German")
             Text(app.language.name).tag("Translation")
         }
         .pickerStyle(.segmented)
 
         switch mode {
         case "German":
-            letterBlock("Deutsch · sent to the office", d.letterDe, accent: .blue500, bg: .blue100)
+            letterBlock(L("Deutsch · sent to the office"), d.letterDe, accent: .blue500, bg: .blue100)
         case "Translation":
-            letterBlock("\(app.language.name) · for you to understand", d.translation, accent: .lilac700, bg: .lilac100)
+            letterBlock(L("%@ · for you to understand", app.language.name), d.translation, accent: .lilac700, bg: .lilac100)
         default:
             HStack(alignment: .top, spacing: Space.sm) {
                 letterBlock("Deutsch", d.letterDe, accent: .blue500, bg: .blue100, small: true)
@@ -85,23 +85,23 @@ struct LetterReplyView: View {
         let tokens = Array(Set((d.lockedTokens ?? []) + lockedTokens)).sorted()
         if !tokens.isEmpty {
             VStack(alignment: .leading, spacing: Space.sm) {
-                Text("Locked details (copied exactly)").font(.system(size: 15, weight: .semibold)).foregroundStyle(Color.ink900)
+                Text(L("Locked details (copied exactly)")).font(.system(size: 15, weight: .semibold)).foregroundStyle(Color.ink900)
                 FlowChips(tokens: tokens, letter: d.letterDe)
             }
             .card()
         }
 
         if sent {
-            Label("Marked as sent. We'll track the reply.", systemImage: "checkmark.circle.fill")
+            Label(L("Marked as sent. We'll track the reply."), systemImage: "checkmark.circle.fill")
                 .font(.system(size: 17, weight: .semibold))
                 .foregroundStyle(Color.green800)
                 .card(.green100)
         } else {
-            ShareLink(item: d.letterDe, subject: Text("Brief"), preview: SharePreview("German letter")) {
-                Label("Share / print German letter", systemImage: "square.and.arrow.up")
+            ShareLink(item: d.letterDe, subject: Text(L("Brief")), preview: SharePreview(L("German letter"))) {
+                Label(L("Share / print German letter"), systemImage: "square.and.arrow.up")
             }
             .buttonStyle(.primary)
-            Button("I've sent it") {
+            Button(L("I've sent it")) {
                 sent = true
                 Haptics.success()
                 onSent()
@@ -109,7 +109,7 @@ struct LetterReplyView: View {
             .buttonStyle(.secondary)
         }
 
-        Text("Check the letter before sending. The German version is the one that counts legally.")
+        Text(L("Check the letter before sending. The German version is the one that counts legally."))
             .font(.caption13).foregroundStyle(Color.ink500)
     }
 

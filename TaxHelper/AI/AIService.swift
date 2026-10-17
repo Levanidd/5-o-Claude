@@ -17,9 +17,9 @@ enum AIService {
         UserDefaults.standard.bool(forKey: "demoMode")
     }
 
-    static func post<T: Decodable>(_ path: String, _ body: [String: Any], as: T.Type) async throws -> T {
+    static func post<T: Decodable>(_ path: String, _ body: [String: Any], as: T.Type, timeout: TimeInterval = 90) async throws -> T {
         guard let url = URL(string: baseURL + path) else { throw URLError(.badURL) }
-        var request = URLRequest(url: url, timeoutInterval: 90)
+        var request = URLRequest(url: url, timeoutInterval: timeout)
         request.httpMethod = "POST"
         request.setValue("application/json", forHTTPHeaderField: "content-type")
         request.httpBody = try JSONSerialization.data(withJSONObject: body)
@@ -88,6 +88,13 @@ enum AIService {
         await withFallback(SampleData.cardAnswer(question: question, o)) {
             try await post("/api/answer-on-card", ["rule": o.ruleData, "question": question, "language": language.rawValue], as: CardAnswer.self)
         }
+    }
+
+    private struct UITranslation: Decodable { let translations: [String: String] }
+
+    static func translateUI(keys: [String], language: Lang) async throws -> [String: String] {
+        let result = try await post("/api/translate-ui", ["keys": keys, "language": language.rawValue], as: UITranslation.self, timeout: 300)
+        return result.translations
     }
 
     static func extractDocument(text: String?, image: Data?, language: Lang) async -> AIResult<ExtractedDocument> {

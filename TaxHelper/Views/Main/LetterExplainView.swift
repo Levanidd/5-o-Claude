@@ -17,7 +17,7 @@ struct LetterExplainView: View {
                 } else {
                     VStack(spacing: Space.lg) {
                         ProgressView().tint(Color.lilac700).scaleEffect(1.3)
-                        Text("Claude is reading the letter…").font(.body17).foregroundStyle(Color.ink500)
+                        Text(L("Claude is reading the letter…")).font(.body17).foregroundStyle(Color.ink500)
                     }
                     .frame(maxWidth: .infinity, minHeight: 300)
                 }
@@ -25,15 +25,15 @@ struct LetterExplainView: View {
             .padding(Space.lg)
         }
         .screenBackground()
-        .navigationTitle("Your letter")
+        .navigationTitle(L("Your letter"))
         .navigationBarTitleDisplayMode(.inline)
         .task {
             guard result == nil else { return }
             let r = await AIService.explainLetter(text: letter.originalText, image: letter.imageData, language: app.language)
             withAnimation { result = r }
             if let deadline = r.value.deadline {
-                app.addDeadline("Reply to \(r.value.sender ?? "letter")", deadline)
-                app.banner = "New deadline added: \(deadline)"
+                app.addDeadline(L("Reply to %@", r.value.sender ?? L("letter")), deadline)
+                app.banner = L("New deadline added: %@", deadline)
             }
         }
     }
@@ -45,25 +45,25 @@ struct LetterExplainView: View {
             if let sender = e.sender {
                 Label(sender, systemImage: "building.2").font(.caption13).foregroundStyle(Color.blue500)
             }
-            Text(e.subject ?? "Here's what this letter means").font(.title).foregroundStyle(Color.ink900)
+            Text(e.subject ?? L("Here's what this letter means")).font(.title).foregroundStyle(Color.ink900)
         }
 
         HStack(spacing: Space.md) {
             if let deadline = e.deadline {
-                fact("Deadline", deadline, icon: "calendar.badge.exclamationmark", bg: .gold100)
+                fact(L("Deadline"), deadline, icon: "calendar.badge.exclamationmark", bg: .gold100)
             }
             if let amount = e.amount {
-                fact("Amount", amount, icon: "eurosign", bg: .green100)
+                fact(L("Amount"), amount, icon: "eurosign", bg: .green100)
             }
         }
 
-        AIBlock(label: r.fromCache ? "AI-explained · demo answer" : "AI-explained in \(app.language.name)", onReport: { showOriginal = true }) {
-            Text("What it says").font(.system(size: 15, weight: .semibold)).foregroundStyle(Color.ink900)
+        AIBlock(label: r.fromCache ? L("AI-explained · demo answer") : L("AI-explained in %@", app.language.name), onReport: { showOriginal = true }) {
+            Text(L("What it says")).font(.system(size: 15, weight: .semibold)).foregroundStyle(Color.ink900)
             Text(e.whatItSays).font(.body17).foregroundStyle(Color.ink900)
         }
 
         VStack(alignment: .leading, spacing: Space.md) {
-            Text("What you need to do").font(.heading).foregroundStyle(Color.ink900)
+            Text(L("What you need to do")).font(.heading).foregroundStyle(Color.ink900)
             ForEach(Array(e.whatToDo.enumerated()), id: \.offset) { i, step in
                 HStack(alignment: .top, spacing: Space.md) {
                     Text("\(i + 1)")
@@ -78,19 +78,19 @@ struct LetterExplainView: View {
 
         NavigationLink {
             LetterReplyView(
-                title: "Reply in German",
+                title: L("Reply in German"),
                 intent: letter.originalText == SampleData.insurerLetter ? SampleData.replyIntent : "",
                 context: letter.originalText ?? e.translation ?? e.whatItSays,
                 lockedTokens: [e.fileNumber].compactMap { $0 },
-                onSent: { app.banner = "Reply sent. We'll remind you before \(e.deadline ?? "the deadline")." }
+                onSent: { app.banner = L("Reply sent. We'll remind you before %@.", e.deadline ?? L("the deadline")) }
             )
         } label: {
-            Label("Reply in German", systemImage: "arrowshape.turn.up.left")
+            Label(L("Reply in German"), systemImage: "arrowshape.turn.up.left")
         }
         .buttonStyle(.primary)
 
         if let translation = e.translation {
-            DisclosureGroup("Full translation", isExpanded: $showTranslation) {
+            DisclosureGroup(L("Full translation"), isExpanded: $showTranslation) {
                 Text(translation).font(.system(size: 15)).foregroundStyle(Color.ink900).padding(.top, Space.sm)
             }
             .tint(Color.lilac700)
@@ -98,20 +98,20 @@ struct LetterExplainView: View {
         }
 
         if let original = letter.originalText {
-            DisclosureGroup("German original", isExpanded: $showOriginal) {
+            DisclosureGroup(L("German original"), isExpanded: $showOriginal) {
                 Text(original).font(.system(size: 14, design: .serif)).foregroundStyle(Color.ink900).padding(.top, Space.sm)
             }
             .tint(Color.blue500)
             .card(.blue100)
         } else if let data = letter.imageData, let image = UIImage(data: data) {
-            DisclosureGroup("German original", isExpanded: $showOriginal) {
+            DisclosureGroup(L("German original"), isExpanded: $showOriginal) {
                 Image(uiImage: image).resizable().scaledToFit().clipShape(RoundedRectangle(cornerRadius: 12))
             }
             .tint(Color.blue500)
             .card(.blue100)
         }
 
-        Text("The German original is the one that counts legally. The translation is for understanding only.")
+        Text(L("The German original is the one that counts legally. The translation is for understanding only."))
             .font(.caption13).foregroundStyle(Color.ink500)
     }
 

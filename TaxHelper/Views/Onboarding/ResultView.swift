@@ -16,7 +16,7 @@ struct ResultView: View {
             EuroBackdrop()
             ScrollView {
                 VStack(alignment: .leading, spacing: Space.xl) {
-                    Text("Nice — here's what \(app.profile.childName.isEmpty ? "your family" : "you and " + app.profile.childName) can claim")
+                    Text(app.profile.childName.isEmpty ? L("Nice — here's what your family can claim") : L("Nice — here's what you and %@ can claim", app.profile.childName))
                         .font(.title)
                         .foregroundStyle(Color.ink900)
 
@@ -25,9 +25,9 @@ struct ResultView: View {
                             .font(.display)
                             .foregroundStyle(Color.green800)
                             .contentTransition(.numericText(value: shown))
-                        Text("per year, not claimed yet").font(.body17).foregroundStyle(Color.ink500)
+                        Text(L("per year, not claimed yet")).font(.body17).foregroundStyle(Color.ink500)
                         if totals.once > 0 {
-                            Text("+ " + euro(shownOnce) + " back from past tax years")
+                            Text(L("+ %@ back from past tax years", euro(shownOnce)))
                                 .font(.system(size: 17, weight: .semibold))
                                 .foregroundStyle(Color.ink900)
                                 .padding(.horizontal, 10).padding(.vertical, 6)
@@ -35,31 +35,31 @@ struct ResultView: View {
                                 .contentTransition(.numericText(value: shownOnce))
                         }
                         Divider().padding(.vertical, Space.xs)
-                        split("Paid to you (care insurer)", cashPart)
-                        split("Tax saving ≈ (at 30% tax rate)", taxPart)
+                        split(L("Paid to you (care insurer)"), cashPart)
+                        split(L("Tax saving ≈ (at 30% tax rate)"), taxPart)
                     }
                     .card()
 
-                    Text("Top opportunities").font(.heading).foregroundStyle(Color.ink900)
+                    Text(L("Top opportunities")).font(.heading).foregroundStyle(Color.ink900)
                     ForEach(opps.filter { !$0.alreadyReceived }.prefix(4)) { o in
                         OpportunityRow(opportunity: o, status: app.status(o))
                     }
 
                     VStack(spacing: Space.md) {
-                        Button("Go to my dashboard") {
+                        Button(L("Go to my dashboard")) {
                             Haptics.success()
                             app.stage = .main
                         }
                         .buttonStyle(.primary)
 
-                        Button("Change my answers") {
+                        Button(L("Change my answers")) {
                             app.profileStep = 0
                             app.stage = .profile
                         }
                         .buttonStyle(.secondary)
                     }
 
-                    Text("Estimates from fixed rules (2026 amounts). Information, not legal or tax advice.")
+                    Text(L("Estimates from fixed rules (2026 amounts). Information, not legal or tax advice."))
                         .font(.caption13)
                         .foregroundStyle(Color.ink500)
                 }
@@ -79,8 +79,8 @@ struct ResultView: View {
 
     private func split(_ label: String, _ value: Double) -> some View {
         HStack {
-            Text(label).font(.system(size: 15)).foregroundStyle(Color.ink500)
-            Spacer()
+            Text(label).font(.system(size: 15)).foregroundStyle(Color.ink500).lineLimit(2)
+            Spacer(minLength: Space.sm)
             Text(euro(value)).font(.system(size: 15, weight: .semibold).monospacedDigit()).foregroundStyle(Color.ink900)
         }
     }

@@ -127,7 +127,21 @@ def extract_document(p):
     return call_claude(prompt("extract_document", language=language_name(p), document=text), image_of(p))
 
 
+def translate_ui(p):
+    keys = p.get("keys", [])
+    out = {}
+    for i in range(0, len(keys), 60):
+        batch = keys[i:i + 60]
+        result = call_claude(prompt(
+            "translate_ui", language=language_name(p),
+            strings=json.dumps(batch, ensure_ascii=False),
+        ), max_tokens=8000)
+        out.update(result.get("translations", {}))
+    return {"translations": out}
+
+
 ROUTES = {
+    "/api/translate-ui": translate_ui,
     "/api/explain-letter": explain_letter,
     "/api/draft-letter": draft_letter,
     "/api/explain-opportunity": explain_opportunity,

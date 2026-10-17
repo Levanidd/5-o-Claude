@@ -37,13 +37,13 @@ enum Merkzeichen: String, Codable, CaseIterable, Identifiable {
 
     var meaning: String {
         switch self {
-        case .G: "Walking impaired"
-        case .aG: "Severely walking impaired"
-        case .H: "Helpless (needs constant help)"
-        case .Bl: "Blind"
-        case .TBl: "Deafblind"
-        case .B: "Needs a companion"
-        case .Gl: "Deaf"
+        case .G: L("Walking impaired")
+        case .aG: L("Severely walking impaired")
+        case .H: L("Helpless (needs constant help)")
+        case .Bl: L("Blind")
+        case .TBl: L("Deafblind")
+        case .B: L("Needs a companion")
+        case .Gl: L("Deaf")
         }
     }
 }
@@ -89,9 +89,9 @@ enum Confidence: String, Codable {
 
     var label: String {
         switch self {
-        case .confirmed: "Confirmed"
-        case .likely: "Likely"
-        case .needsInfo: "Needs 1 answer"
+        case .confirmed: L("Confirmed")
+        case .likely: L("Likely")
+        case .needsInfo: L("Needs 1 answer")
         }
     }
 }
@@ -109,10 +109,10 @@ enum CaseStatus: String, Codable, CaseIterable {
 
     var label: String {
         switch self {
-        case .found: "Found"
-        case .inProgress: "In progress"
-        case .submitted: "Submitted"
-        case .approved: "Approved"
+        case .found: L("Found")
+        case .inProgress: L("In progress")
+        case .submitted: L("Submitted")
+        case .approved: L("Approved")
         }
     }
 }
@@ -163,10 +163,10 @@ struct Opportunity: Identifiable, Hashable {
 
     var valueLabel: String {
         switch kind {
-        case .taxDeduction: "tax saving ≈"
-        case .cashBenefit: "paid to you"
-        case .nonCash: "builds your pension"
-        case .info: "first step"
+        case .taxDeduction: L("tax saving ≈")
+        case .cashBenefit: L("paid to you")
+        case .nonCash: L("builds your pension")
+        case .info: L("first step")
         }
     }
 

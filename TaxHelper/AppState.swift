@@ -8,7 +8,13 @@ enum Stage: String, Codable {
 @Observable
 final class AppState {
     var stage: Stage { didSet { save() } }
-    var language: Lang { didSet { save() } }
+    var language: Lang {
+        didSet {
+            save()
+            L10n.shared.lang = language
+            Task { await L10n.shared.ensure(language) }
+        }
+    }
     var profile: Profile { didSet { save() } }
     var statuses: [String: CaseStatus] { didSet { save() } }
     var profileStep: Int { didSet { save() } }
@@ -92,6 +98,7 @@ final class AppState {
             statuses = [:]
             profileStep = 0
         }
+        L10n.shared.lang = language
     }
 
     private func save() {
