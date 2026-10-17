@@ -2,7 +2,7 @@ import SwiftUI
 
 struct FamilyView: View {
     @Environment(AppState.self) private var app
-    @AppStorage("backendURL") private var backendURL = "http://127.0.0.1:8787"
+    @AppStorage("backendURL") private var backendURL = AIService.defaultURL
     @AppStorage("demoMode") private var demoMode = false
     @State private var confirmReset = false
 

@@ -9,8 +9,18 @@ struct AIResult<T> {
 }
 
 enum AIService {
+    static let defaultURL: String = {
+        #if targetEnvironment(simulator)
+        return "http://127.0.0.1:8787"
+        #else
+        let fromBuild = Bundle.main.object(forInfoDictionaryKey: "BackendURL") as? String ?? ""
+        return fromBuild.isEmpty ? "http://127.0.0.1:8787" : fromBuild
+        #endif
+    }()
+
     static var baseURL: String {
-        UserDefaults.standard.string(forKey: "backendURL") ?? "http://127.0.0.1:8787"
+        let saved = UserDefaults.standard.string(forKey: "backendURL") ?? ""
+        return saved.isEmpty ? defaultURL : saved
     }
 
     static var demoMode: Bool {
