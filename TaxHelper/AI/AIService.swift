@@ -1,7 +1,7 @@
 import Foundation
 import UIKit
 
-/// Talks to our small backend (server/server.py), which calls Claude.
+/// Talks to our small backend (worker/ on Cloudflare, or server/server.py locally), which calls Claude.
 /// The API key never lives in the app. If the backend fails, we fall back to cached demo answers.
 struct AIResult<T> {
     let value: T
@@ -10,12 +10,8 @@ struct AIResult<T> {
 
 enum AIService {
     static let defaultURL: String = {
-        #if targetEnvironment(simulator)
-        return "http://127.0.0.1:8787"
-        #else
         let fromBuild = Bundle.main.object(forInfoDictionaryKey: "BackendURL") as? String ?? ""
         return fromBuild.isEmpty ? "http://127.0.0.1:8787" : fromBuild
-        #endif
     }()
 
     static var baseURL: String {

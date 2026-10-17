@@ -1,0 +1,16 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "taxability",
+  "main": "src/index.js",
+  "compatibility_date": "2026-10-17",
+  // The API key is a secret: `wrangler secret put ANTHROPIC_API_KEY`.
+  "vars": {
+    "ANTHROPIC_MODEL": "claude-sonnet-5-5"
+  },
+  // Prompts live in ../prompts and are bundled as plain text.
+  "rules": [{ "type": "Text", "globs": ["**/*.md"], "fallthrough": true }],
+  "observability": {
+    "enabled": true,
+    "traces": { "enabled": true }
+  }
+}

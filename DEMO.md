@@ -4,8 +4,8 @@ Record on the real iPhone. Claude answers live; each AI step takes 3–10 second
 
 ## Before recording (5 minutes)
 
-1. Mac: start the backend `python3 server/server.py` and a public tunnel to it: `cloudflared tunnel --url http://localhost:8787` (no account needed; prints an `https://….trycloudflare.com` address). Open `<address>/health` → `"ok": true`. Keep the Mac awake.
-2. Build the app onto the iPhone with that address: `BACKEND_URL=https://….trycloudflare.com` in the build settings (or paste it in Family tab → AI connection). The phone then works on any network, even mobile data. Family tab → **Demo mode** off. Then **Delete my data** so the app starts at the language screen.
+1. The backend runs on Cloudflare, no laptop needed. Check it: open `https://taxability.kurdyukov-leo-ger.workers.dev/health` → `"ok": true`. The iPhone works on any network, even mobile data.
+2. iPhone: Family tab → **Demo mode** off. Then **Delete my data** so the app starts at the language screen.
 3. Print `fixtures/pflegegrad_bescheid.pdf` and `fixtures/pflegekasse_brief.pdf` (or open the PNGs full screen on a laptop). Both are fictional and marked MUSTER.
 4. iPhone: Focus / Do Not Disturb on, brightness up, battery charged.
 5. Record the screen: plug the iPhone into the Mac → QuickTime Player → File → New Movie Recording → click the arrow next to the record button → choose the iPhone as camera and microphone. (Alternative: iOS Control Center → Screen Recording.)
@@ -25,6 +25,6 @@ Record on the real iPhone. Claude answers live; each AI step takes 3–10 second
 
 ## If something goes wrong
 
-- Claude doesn't answer (bad Wi-Fi): Family → turn **Demo mode** on. The app shows cached answers marked "demo answer", so the video still runs.
+- Claude doesn't answer (no internet on the phone): Family → turn **Demo mode** on. The app shows cached answers marked "demo answer", so the video still runs.
 - The camera can't read the paper: use **Choose a photo** with the PNG from `fixtures/`, or the **Use sample … (MUSTER)** buttons.
 - Too long: drop the profile questions and use **Use demo family (Priya & Arjun)** on the welcome screen. You lose the € meter but save 25 seconds.

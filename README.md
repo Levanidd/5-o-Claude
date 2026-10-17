@@ -27,19 +27,30 @@ Claude is the reading, explaining and writing layer — **not** the decision mak
 - **Fixed rules decide eligibility and €** (`TaxHelper/Rules/RulesEngine.swift`, 10 German rules, 2026 amounts). Claude never calculates money.
 - Claude (vision + text, default model `claude-sonnet-5-5`, configurable via `ANTHROPIC_MODEL`) does: read official documents into JSON, explain official letters in the parent's language, write formal German letters, explain a card, answer questions on a card.
 - Every AI output is labelled ✨ (lilac colour), has a "This isn't right" link, and says when it is a cached demo answer.
-- Prompts live in [`prompts/`](prompts/). The API key stays on a tiny Python backend ([`server/server.py`](server/server.py)), never in the app.
+- Prompts live in [`prompts/`](prompts/). The API key stays on a tiny backend, never in the app: a Cloudflare Worker ([`worker/`](worker/), live at `https://taxability.kurdyukov-leo-ger.workers.dev`) or the same API as a local Python server ([`server/server.py`](server/server.py)).
 
 ## How to run it
-Requirements: macOS with Xcode 27 (iOS 27 simulator), Python 3.
+Requirements: macOS with Xcode 27, iOS 26+ (simulator or iPhone).
 
 ```bash
-cp .env.example .env          # paste your ANTHROPIC_API_KEY into .env
-python3 server/server.py      # backend on http://127.0.0.1:8787 (standard library only)
-open TaxHelper.xcodeproj      # run the TaxHelper scheme on an iPhone simulator
+open TaxHelper.xcodeproj      # run the TaxHelper scheme; it talks to the hosted Worker out of the box
 ```
 
+Run your own backend instead (both keep the key in `.env` or a Cloudflare secret, never in Git):
+
+```bash
+# Cloudflare Worker
+cd worker && npm install
+npx wrangler deploy
+npx wrangler secret put ANTHROPIC_API_KEY      # paste the key when asked
+
+# or locally, Python standard library only
+cp .env.example .env && python3 server/server.py   # http://127.0.0.1:8787
+```
+
+Then set `BACKEND_URL` in the TaxHelper target's build settings, or paste the URL in the app: Family tab → AI connection.
+
 - Fastest demo: on the welcome screen tap **"Use demo family (Priya & Arjun)"**, then Capture → **"Use sample letter from care insurer (MUSTER)"** → **Reply in German**.
-- On a real iPhone: Family tab → AI connection → set the backend URL to your Mac's IP (e.g. `http://192.168.1.20:8787`). If the Wi-Fi blocks phone-to-laptop traffic, run `cloudflared tunnel --url http://localhost:8787` and use the `https://….trycloudflare.com` address it prints instead.
 - **Demo mode** (Family tab) uses cached AI answers, so the pitch works offline. If the backend is unreachable the app falls back to them automatically.
 - Printable fictional documents to photograph: `fixtures/pflegegrad_bescheid.pdf` (care-level decision) and `fixtures/pflegekasse_brief.pdf` (letter from the care insurer). Video script: [DEMO.md](DEMO.md).
 
@@ -63,5 +74,6 @@ Teams of 5 (at least 1 builder, 1 product or design, 1 domain expert; plus found
 ## Credits
 - [Claude API](https://docs.claude.com) by Anthropic — document reading, explanations, German letters.
 - Apple SwiftUI, PhotosUI and SF Symbols.
+- [Cloudflare Workers](https://developers.cloudflare.com/workers/) and Wrangler — hosting for the backend.
 - Rule amounts compiled from §33b EStG and SGB XI (gesetze-im-internet.de) and the secondary sources listed in `Project context.MD`.
 - Colours approximate the Taxfix brand; no Taxfix logos or illustrations are used. All documents are fictional "MUSTER" samples, no real personal data.

@@ -1,0 +1,13 @@
+{
+  "name": "taxability-worker",
+  "version": "1.0.0",
+  "scripts": {
+    "deploy": "wrangler deploy",
+    "dev": "wrangler dev"
+  },
+  "type": "module",
+  "devDependencies": {
+    "wrangler": "^4.151.1"
+  },
+  "private": "true"
+}
